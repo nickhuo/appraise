@@ -10,16 +10,7 @@ The numbers on each button represent the agent's assessment of their importance 
 
 ## Deliverables
 
-The current implementation addresses the brief as follows. Artifact paths below are relative to `runs/<app>/<run-id>/`.
-
-- The [system design](docs/system-design.md) documents the architecture, trade-offs, current limits, and next steps.
-
-- **Code:** `bun explore`, `bun recreate`, `bun recommend` (proposer + judge), and `bun present`. Source: [Explore](src/explore/), [Recreate](src/recreate/), [Recommend](src/recommend/), and [Present](src/present/). Explore and Recommend default to `gpt-6-sol` and require `OPENAI_API_KEY`. Explore also needs an Android emulator and starts a local Appium server. Recreate and Present run locally without model calls. 
-- **Product model:** `product-model.json` records observed states, actions, transitions, screenshot evidence, monetization facts, and unfinished or blocked entrances. Coverage is partial, with one model per run. Cross-run merging and resume are not implemented.
-- **Mock evidence:** `mock/<hash>/index.html` replays screenshots and recorded interactions; `manifest.json` records their sources. Recreate checks evidence paths, image dimensions, and transition references. Generated UI, visual diffs. 
-- **Rewarded flows:** `recommend/<id>/proposals.json` and `judgments.json` retain candidates, revisions, scores, reasoning, and rejections. `flows/<hash>/index.html` presents approved proposals, with input references in its manifest. Ads and rewards are illustrated, not executed in the app.
-- **Trajectory:** `explore.log` records decisions, actions, and failures; `graph.json` retains observations and model usage; `captures/` holds screenshots, page source, and element lists. Recommendation manifests record model usage.
-- **Walkthrough recording:** [Watch the video](https://drive.google.com/file/d/18xteXCndODPTi-kDQUPTOQP1Am-k8Evi/view?usp=sharing). 
+The current implementation addresses the brief as follows. Artifact paths below are relative to `runs/<app>/<run-id>/`. The [system design](docs/system-design.md) documents the architecture, trade-offs, current limits
 
 
 | App     | Product model                                                                 | Replay                                                                                                                                       | Proposal / Judge JSON                                                                                                                                                                                                                            |
